@@ -10,6 +10,12 @@
   home-manager.users.chris = { pkgs, ... }: {
     home.stateVersion = "23.05";
     home.packages = [ ];
-    programs.bash.enable = true;
+
+    programs.zsh.enable = true;
+
+    programs.git = {
+      enable = true;
+      userName = "Chris Rowe";
+    };
   };
 }
