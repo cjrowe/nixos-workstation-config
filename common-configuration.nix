@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./home-manager.nix
     ./window-manager.nix
     ./yubikey.nix
   ];
