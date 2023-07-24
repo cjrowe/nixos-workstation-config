@@ -11,6 +11,8 @@
     home.stateVersion = "23.05";
     home.packages = [ ];
 
+    shell = pkgs.zsh;
+
     programs.zsh = {
       enable = true;
 
