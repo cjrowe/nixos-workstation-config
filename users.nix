@@ -5,13 +5,12 @@
   users.users.chris = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
   };
 
   home-manager.users.chris = { pkgs, ... }: {
     home.stateVersion = "23.05";
     home.packages = [ ];
-
-    shell = pkgs.zsh;
 
     programs.zsh = {
       enable = true;
