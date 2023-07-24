@@ -11,7 +11,13 @@
     home.stateVersion = "23.05";
     home.packages = [ ];
 
-    programs.zsh.enable = true;
+    programs.zsh = {
+      enable = true;
+      oh-my-zsh = {
+        plugins = [ "git" ];
+        theme = "robyrussell";
+      };
+    };
 
     programs.git = {
       enable = true;
