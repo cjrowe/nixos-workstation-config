@@ -2,6 +2,10 @@
 {
   imports = [ <home-manager/nixos> ];
 
+  # Make zsh available system-wide
+  programs.zsh.enable = true;
+  environment.shells = with pkgs; [ zsh ];
+
   users.users.chris = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
