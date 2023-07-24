@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../common-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -43,18 +44,18 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
+  #   keyMap = "gb";
   #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
+  #  };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
 
   
 
   # Configure keymap in X11
-  # services.xserver.layout = "us";
+  services.xserver.layout = "gb";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -82,20 +83,33 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     neofetch
+    yubikey-personalization
+    gnupg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "curses";
+  };
+
+  environment.shellInit = ''
+    gpg-connect-agent /bye
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  '';
 
   # List services that you want to enable:
+  services.pcscd.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  services.udev.packages = with pkgs; [
+    yubikey-personalization
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
