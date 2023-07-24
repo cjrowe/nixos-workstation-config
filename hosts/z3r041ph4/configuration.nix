@@ -16,6 +16,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.supportedFilesystems = [ "zfs" ];
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.kernelParams = [ "nohibernate" ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
@@ -82,6 +84,8 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.zfs.autoScrub.enable = true;
+  services.zfs.trim.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
