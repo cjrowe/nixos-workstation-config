@@ -13,6 +13,11 @@
 
     programs.zsh = {
       enable = true;
+
+      shellAliases = {
+        hgrep = "history | grep";
+      };
+
       oh-my-zsh = {
         plugins = [ "git" ];
         theme = "robyrussell";
