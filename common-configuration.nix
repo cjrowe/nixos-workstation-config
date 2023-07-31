@@ -12,5 +12,6 @@
     vim
     wget
     neofetch
+    htop
   ];
 }

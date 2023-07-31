@@ -4,7 +4,9 @@
 
   # Make zsh available system-wide
   programs.zsh.enable = true;
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [ 
+    zsh
+  ];
 
   users.users.chris = {
     isNormalUser = true;
@@ -14,7 +16,9 @@
 
   home-manager.users.chris = { pkgs, ... }: {
     home.stateVersion = "23.05";
-    home.packages = [ ];
+    home.packages = with pkgs; [ 
+      neomutt
+    ];
 
     programs.zsh = {
       enable = true;
