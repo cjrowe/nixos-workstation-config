@@ -17,7 +17,11 @@
   home-manager.users.chris = { pkgs, ... }: {
     home.stateVersion = "23.05";
     home.packages = with pkgs; [ 
+      brave
       neomutt
+      isync
+      msmtp
+      pass
     ];
 
     programs.zsh = {
@@ -36,6 +40,10 @@
     programs.git = {
       enable = true;
       userName = "Chris Rowe";
+    };
+
+    programs.abook = {
+      enable = true;
     };
   };
 }
