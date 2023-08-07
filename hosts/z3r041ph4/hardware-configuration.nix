@@ -8,54 +8,34 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "thunderbolt" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "zroot/nixos/root";
+    { device = "rpool/root/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "zroot/nixos/home";
-      fsType = "zfs";
-    };
-
-  fileSystems."/nix" =
-    { device = "zroot/nixos/nix";
-      fsType = "zfs";
-    };
-
-  fileSystems."/var" =
-    { device = "zroot/nixos/var";
-      fsType = "zfs";
-    };
-
-  fileSystems."/var/log" =
-    { device = "zroot/nixos/var/log";
-      fsType = "zfs";
-    };
-
-  fileSystems."/var/lib" =
-    { device = "zroot/nixos/var/lib";
+    { device = "rpool/home";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5D8B-C707";
+    { device = "/dev/disk/by-uuid/2FE2-07CF";
       fsType = "vfat";
     };
 
   fileSystems."/boot-fallback" =
-    { device = "/dev/disk/by-uuid/5DEB-67E5";
+    { device = "/dev/disk/by-uuid/3017-6FB7";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/nvme0n1p4"; randomEncryption.enable = true; }
-      { device = "/dev/nvme1n1p4"; randomEncryption.enable = true; }
+    [ { device = "/dev/disk/by-uuid/ad530fbb-40e7-4bec-b3d8-bb2fc6873d5a"; }
+      { device = "/dev/disk/by-uuid/620577c9-66a7-4285-b63e-26923ca23e05"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
