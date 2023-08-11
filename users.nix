@@ -1,6 +1,9 @@
 { lib, pkgs, osConfig, ... }:
 {
-  imports = [ <home-manager/nixos> ];
+  imports = [
+    <home-manager/nixos>
+    ./personal/chris/email-accounts.nix
+  ];
 
   # Make zsh available system-wide
   programs.zsh.enable = true;

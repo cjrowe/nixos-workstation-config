@@ -1,0 +1,3 @@
+[submodule "personal/chris"]
+	path = personal/chris
+	url = git@github.com:cjrowe/nixos-personal.git
