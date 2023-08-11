@@ -24,6 +24,12 @@
       pass
     ];
 
+    programs.gpg = {
+      enable = true;
+      mutableKeys = true;
+      mutableTrust = true;
+    };
+
     programs.zsh = {
       enable = true;
 
@@ -40,10 +46,28 @@
     programs.git = {
       enable = true;
       userName = "Chris Rowe";
+      userEmail = "chris@chrisrowe.co.uk";
+      signing.key = "0x17A0DABCBA7A9461";
+    };
+
+    programs.neomutt = {
+      enable = true;
     };
 
     programs.abook = {
       enable = true;
+      extraConfig =
+        ''
+        set show_all_emails=true
+        set mutt_command=neomutt
+        set mutt_return_all_emails=true
+        set address_style=uk
+        '';
+    };
+
+    programs.neovim = {
+      enable = true;
+      vimAlias = true;
     };
   };
 }
