@@ -41,8 +41,9 @@
       };
 
       oh-my-zsh = {
+        enable = true;
         plugins = [ "git" ];
-        theme = "robyrussell";
+        theme = "theunraveler";
       };
     };
 
