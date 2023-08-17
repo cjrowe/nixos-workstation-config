@@ -22,15 +22,17 @@
 
   fonts = {
     enableDefaultFonts = true;
+    fontDir.enable = true;
     fonts = with pkgs; [
       fira-code
       fira-code-symbols
       jetbrains-mono
+      source-code-pro
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "jetbrains-mono" ];
+        monospace = [ "JetBrainsMono-Medium" ];
       };
     };
   };

@@ -43,7 +43,7 @@
       oh-my-zsh = {
         enable = true;
         plugins = [ "git" ];
-        theme = "theunraveler";
+        theme = "robbyrussell";
       };
     };
 

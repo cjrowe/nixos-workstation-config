@@ -8,6 +8,13 @@
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   services.xserver.windowManager.dwm.enable = true;
+  services.xserver.displayManager.session = [{
+    manage = "desktop";
+    name = "none";
+    start = ''
+      ${pkgs.dwmblocks}/bin/dwmblocks &
+    '';
+  }];
 
   nixpkgs.overlays = [
     (self: super: {
@@ -41,6 +48,10 @@
       ];
     }))
     dmenu
+    dwmblocks
+    xcompmgr
   ];
 }
+
+
 
