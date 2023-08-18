@@ -38,10 +38,6 @@
           url = "https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff";
 	  sha256 = "0mgsklws6jsrngcsy64zmr604qsdlpd5pqsa3pci7j3gn8im4zyw";
 	})
-	(fetchpatch {
-          url = "https://st.suckless.org/patches/ligatures/0.9/st-ligatures-scrollback-20230105-0.9.diff";
-	  sha256 = "0iaig1f3klbcy1xlsl91pdr8793y318lma32yg12pqpd7gswal2b";
-	})
       ];
     }))
     dmenu
