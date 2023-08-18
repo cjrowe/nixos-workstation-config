@@ -28,6 +28,9 @@
           })
         ];
       });
+      dwmblocks = super.dwmblocks.overrideAttrs (oldAttrs: rec {
+        configFile = super.writeText "blocks.def.h" (builtins.readFile ./config/dwmblocks/blocks.def.h);
+      });
     })
   ];
 
@@ -41,8 +44,8 @@
 	})
       ];
     }))
+    
     dmenu
-    dwmblocks
     xcompmgr
   ];
 }
