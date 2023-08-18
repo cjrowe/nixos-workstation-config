@@ -27,6 +27,10 @@
       pass
     ];
 
+    programs.bat = {
+      enable = true;
+    };
+
     programs.gpg = {
       enable = true;
       mutableKeys = true;

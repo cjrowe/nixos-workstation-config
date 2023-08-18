@@ -1,17 +1,18 @@
 { config, pkgs, ... }:
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  
+  services.xserver = {
+    enable = true;
+    layout = "gb";
 
-  # Configure keymap in X11
-  services.xserver.layout = "gb";
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
-
-  services.xserver.windowManager.dwm.enable = true;
-  services.xserver.displayManager.sessionCommands =
-    ''
-      ${pkgs.dwmblocks}/bin/dwmblocks &
-    '';
+    windowManager.dwm.enable = true;
+    
+    displayManager.sessionCommands =
+      ''
+        ${pkgs.dwmblocks}/bin/dwmblocks &
+      '';
+      
+  };
 
   nixpkgs.overlays = [
     (self: super: {
