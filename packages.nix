@@ -3,7 +3,7 @@
 let
   localPkgs = import ./packages/default.nix { pkgs = pkgs; };
   customPackages = with localPkgs; [
-    # dwm
+    dwm
     dwmblocks
     st
     # dmenu
