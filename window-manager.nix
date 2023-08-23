@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  localPkgs = import ./packages/default.nix { pkgs = pkgs; };
+in
 {
   
   services.xserver = {
@@ -9,7 +12,7 @@
     
     displayManager.sessionCommands =
       ''
-        ${pkgs.dwmblocks}/bin/dwmblocks &
+        ${localPkgs.dwmblocks}/bin/dwmblocks &
       '';
       
   };
