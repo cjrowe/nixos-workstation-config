@@ -27,6 +27,19 @@
       pass
     ];
 
+    xdg = {
+      enable = true;
+
+      mimeApps = {
+        enable = true;
+      };
+
+      userDirs = {
+        enable = true;
+	createDirectories = true;
+      };
+    };
+
     programs.bat = {
       enable = true;
     };
