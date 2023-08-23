@@ -4,3 +4,6 @@
 [submodule "packages/dwmblocks/source"]
 	path = packages/dwmblocks/source
 	url = git@github.com:cjrowe/dwmblocks.git
+[submodule "packages/st/source"]
+	path = packages/st/source
+	url = git@github.com:cjrowe/st.git

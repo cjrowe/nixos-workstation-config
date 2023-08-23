@@ -31,23 +31,10 @@ in
           })
         ];
       });
-      dwmblocks = super.dwmblocks.overrideAttrs (oldAttrs: rec {
-        configFile = super.writeText "blocks.def.h" (builtins.readFile ./config/dwmblocks/blocks.def.h);
-      });
     })
   ];
 
   environment.systemPackages = with pkgs; [
-    (st.overrideAttrs (oldAttrs: rec {
-      buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
-      patches = [
-        (fetchpatch {
-          url = "https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff";
-	  sha256 = "0mgsklws6jsrngcsy64zmr604qsdlpd5pqsa3pci7j3gn8im4zyw";
-	})
-      ];
-    }))
-    
     dmenu
     xcompmgr
   ];

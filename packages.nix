@@ -5,7 +5,7 @@ let
   customPackages = with localPkgs; [
     # dwm
     dwmblocks
-    # st
+    st
     # dmenu
     # anypinentry
   ];
