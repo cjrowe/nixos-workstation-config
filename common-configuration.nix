@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
+let
+  localPkgs = import ./packages/default.nix { pkgs = pkgs; };
+in
 {
   imports = [
+    ./packages.nix
     ./users.nix
     ./window-manager.nix
     ./yubikey.nix

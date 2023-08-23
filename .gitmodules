@@ -1,3 +1,6 @@
 [submodule "personal/chris"]
 	path = personal/chris
 	url = git@github.com:cjrowe/nixos-personal.git
+[submodule "packages/dwmblocks/source"]
+	path = packages/dwmblocks/source
+	url = git@github.com:cjrowe/dwmblocks.git
