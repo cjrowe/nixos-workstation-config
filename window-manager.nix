@@ -15,6 +15,7 @@ in
     
     displayManager.sessionCommands =
       ''
+        ${pkgs.xcompmgr}/bin/xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
         ${localPkgs.dwmblocks}/bin/dwmblocks &
       '';
       
@@ -23,7 +24,6 @@ in
 
   environment.systemPackages = with pkgs; [
     dmenu
-    xcompmgr
   ];
 }
 
