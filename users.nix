@@ -13,7 +13,7 @@
 
   users.users.chris = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "cups" ];
     shell = pkgs.zsh;
   };
 
@@ -27,17 +27,21 @@
       pass
     ];
 
+    home.sessionVariables = {
+      BROWSER="brave";
+    };
+
     xdg = {
       enable = true;
+      
+      mime = {
+        enable = true;
+      };
 
       mimeApps = {
         enable = true;
       };
 
-      userDirs = {
-        enable = true;
-	createDirectories = true;
-      };
     };
 
     programs.bat = {
