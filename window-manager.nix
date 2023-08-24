@@ -10,7 +10,15 @@ in
 
     windowManager.dwm = {
       enable = true;
-      package = localPkgs.dwm;
+      #package = localPkgs.dwm;
+      package = pkgs.dwm.overrideAttrs {
+        src = pkgs.fetchFromGitHub {
+          owner = "cjrowe";
+	  repo = "dwm";
+	  rev = "499d9e523a156e55511cee24ac30da9c0c9919fb";
+	  sha256 = "0r4s9azxs7mnrg54n2wcw7w9sk1xbf9k9c3vj9ywma5k3r8pqgpb";
+	};
+      };
     };
     
     displayManager.sessionCommands =

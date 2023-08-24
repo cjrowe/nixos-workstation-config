@@ -7,6 +7,3 @@
 [submodule "packages/st/source"]
 	path = packages/st/source
 	url = git@github.com:cjrowe/st.git
-[submodule "packages/dwm/source"]
-	path = packages/dwm/source
-	url = git@github.com:cjrowe/dwm.git
