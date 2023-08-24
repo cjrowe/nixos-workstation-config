@@ -8,6 +8,7 @@ in
     ./users.nix
     ./window-manager.nix
     ./yubikey.nix
+    ./packages/st.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
