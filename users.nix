@@ -3,6 +3,7 @@
   imports = [
     <home-manager/nixos>
     ./personal/chris/email/work.nix
+    ./personal/chris/email/personal.nix
   ];
 
   # Make zsh available system-wide
