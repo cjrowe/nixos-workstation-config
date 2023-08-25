@@ -2,7 +2,7 @@
 {
   imports = [
     <home-manager/nixos>
-    ./personal/chris/email-accounts.nix
+    ./personal/chris/email/work.nix
   ];
 
   # Make zsh available system-wide
@@ -21,14 +21,20 @@
     home.stateVersion = "23.05";
     home.packages = with pkgs; [ 
       brave
-      neomutt
-      isync
-      msmtp
-      pass
     ];
 
     home.sessionVariables = {
       BROWSER="brave";
+    };
+
+    programs.password-store.enable = true;
+    programs.mbsync.enable = true;
+    programs.msmtp.enable = true;
+    programs.notmuch = {
+      enable = true;
+      hooks = {
+        preNew = "mbsync --all";
+      };
     };
 
     xdg = {
