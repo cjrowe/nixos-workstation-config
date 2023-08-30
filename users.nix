@@ -18,7 +18,7 @@
     shell = pkgs.zsh;
   };
 
-  home-manager.users.chris = { pkgs, ... }: {
+  home-manager.users.chris = { pkgs, config, ... }: {
     home.stateVersion = "23.05";
     home.packages = with pkgs; [ 
       brave
@@ -28,7 +28,15 @@
       BROWSER="brave";
     };
 
-    programs.password-store.enable = true;
+    accounts.email.maildirBasePath = "${config.xdg.dataHome}/mail";
+
+    programs.password-store = {
+      enable = true;
+      settings = {
+        PASSWORD_STORE_DIR = "${config.xdg.dataHome}/password-store";
+      };
+    };
+
     programs.mbsync.enable = true;
     programs.msmtp.enable = true;
     programs.notmuch = {
