@@ -14,12 +14,18 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
 
   environment.systemPackages = with pkgs; [
     vim
     wget
     neofetch
     htop
+    solaar
   ];
 
   fonts = {
