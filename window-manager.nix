@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let 
+  tokyo-night-sddm = pkgs.libsForQt5.callPackage ./themes/sddm-tokyo-night.nix {};
+in
 {
   
   services.xserver = {
@@ -16,19 +19,29 @@
 	};
       };
     };
-    
-    displayManager.sessionCommands =
-      ''
-        ${pkgs.xcompmgr}/bin/xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
-        ${pkgs.dwmblocks}/bin/dwmblocks &
-      '';
+
+    displayManager = {
+      sddm = {
+        enable = true;
+	enableHidpi = true;
+	theme = "tokyo-night-sddm";
+      };
+
+      sessionCommands =
+        ''
+          ${pkgs.xcompmgr}/bin/xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+          ${pkgs.dwmblocks}/bin/dwmblocks &
+	'';
+    };
       
   };
 
 
   environment.systemPackages = with pkgs; [
     dmenu
+    tokyo-night-sddm
   ];
+
 }
 
 
