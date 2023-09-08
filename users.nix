@@ -20,8 +20,12 @@
 
   home-manager.users.chris = { pkgs, config, ... }: {
     home.stateVersion = "23.05";
+    
+    fonts.fontconfig.enable = true;
+
     home.packages = with pkgs; [ 
       brave
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "SourceCodePro" ]; })
     ];
 
     home.sessionVariables = {
